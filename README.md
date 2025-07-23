@@ -57,16 +57,18 @@ pip install librosa
 ### 🎥 Camera Configuration
 
 - Use **two front-facing cameras** placed at converging angles to capture clear views of the child’s **head, arms, and upper torso** by two cameras simultaneously. If needed, you can try to use the superwide or wide angle lenses or options on your cameras.
+<img width="974" height="548" alt="image" src="https://github.com/user-attachments/assets/83cacab6-3b59-482f-9f45-a07babe90882" />
 - We recommend **GoPro cameras** mounted securely to the mobility device. Ensure cameras **remain fixed** throughout data collection.
 - Recommended mounting accessories will be linked here soon.
 
 ### 🎯 Calibration
 
-- Use a **4×5 35mm checkerboard** for camera calibration. [Link coming soon]
+- Use a **4×5 35mm checkerboard** for camera calibration. [Link](https://calib.io/)
 - If you use a different checkerboard pattern, update the relevant settings in the `sessionMetadata.yaml` file located in the subject/session folder.
 - For *intrinsics* calibration: you will need to record a video of the calibration checkerboard floated in the frames between both cameras at different angles. Save these files as *intrinsics.mp4*.
 - For *extrinsics* calibration: you will need to record a brief video of the checkerboard placed perpendicular to the cameras in the following setup (PHOTO INCLUDED BELOW). Save these files as *extrinsics.mp4*.
-
+  <img width="759" height="630" alt="image" src="https://github.com/user-attachments/assets/a5769697-bc4f-4c1a-927d-91e187a2fb93" />
+  
 ---
 
 ## 🗂️ Data Organization
@@ -106,6 +108,25 @@ While FrankenCap includes a relatively robust **audio-based synchronization algo
 **Tips for video capture:**
 - Try to **reduce background activity** at the beginning of the recording. Avoid having additional people in the frame behind or near the child from the time you start recording your activity of interest.
 - This improves the accuracy of person detection and helps the system more reliably identify the **correct person of interest**.
+
+---
+
+## ▶️ Running the Pipeline
+
+To begin analysis, open the `runAnalysis.py` script. This is the main entry point for processing your video data.
+
+### 🔧 Configuration Steps
+
+1. Open `runAnalysis.py` in your code editor.
+2. Modify the following variables near the top of the script:
+
+```python
+subj = 'P1'           # Folder name for your participant (e.g., 'P1')
+fps = 30              # Frames per second of your video (default is 30Hz)
+startTime = None      # (Optional) Start time in seconds if you want to trim the video
+endTime = None        # (Optional) End time in seconds
+trialName = 'play'    # Name of the trial video (e.g., 'play.mp4')
+```
 
 ---
 
