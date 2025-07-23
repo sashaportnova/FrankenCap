@@ -1,0 +1,35 @@
+How to FrankenCap
+
+MODEL STEPS:
+1) Video processing:
+	- shorten it (if desired)
+	- improve its readability (different encoding techniques)
+	- sync the videos (using audio sync)
+2) Pose detection
+	- run OpenPose on each video to extract 2D keypoints
+		- select the person of interest (bounding-box mechanism)
+3) Triangulate
+	- 2D to 3D keypoint position (save as a pickle file)
+4) 3D filtering
+	- low-pass (Butterworth, fc=10, numtaps=31)
+	- filter by velocity (based on velocity z-score, threshold=3.0)
+	- interpolate (spline, # of frames = 60, 2s equivalent)
+	- pattern-based filling (offset-based, # of frames to use before/after = 5)
+		* Nose to REye
+		* Nose to LEye
+		* Neck to LShoulder
+		* Neck to RShoulder
+		* RShoulder to RElbow
+		* RElbow to RWrist
+		* LShoulder to LElbow
+		* LElbow to LWrist
+	- another low-pass (Butterworth, fc=10, numtaps=31)
+	- rotate keypoints to match the OpenSim convention
+	- estimate hip positions (hip offset = 0.25*height)
+	- save as .trc
+5) Marker augmentation
+	- OpenCap's LSTM to estimate extra elbow and wrist positions)
+6) Model scaling
+	- OpenSim model scaling based on the most static segment of the video
+7) Inverse kinematics
+	- OpenSim IK function on the scaled model using the augmented TRC
