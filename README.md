@@ -1,5 +1,5 @@
 # FrankenCap
-**FrankenCap** is an OpenCap-based pipeline for markerless tracking of upper-body and head kinematics in children using mobility devices, designed to handle lower-limb occlusion and seated postures. Developed at the Neuromechanics and Mobility Lab at the University of Washington.
+**FrankenCap** is an OpenCap-based pipeline for markerless tracking of upper-body and head kinematics in children using mobility devices, designed to handle lower-limb occlusion and seated postures. Developed at the [Neuromechanics and Mobility Lab](https://steelelab.me.uw.edu/) at the [University of Washington](https://www.washington.edu/).
 
 This tool builds on the excellent foundation provided by the [OpenCap](https://github.com/stanfordnmbl/opencap-core) team at Stanford University. We are tremendously thankful for their beautifully structured, clean, and easy-to-follow code to make FrankenCap a relatity. The project name comes from the fact that they amount of times that we "surgically" took and put back together the original OpenCap code was par to that of the Frankenstein creation, hence the name.
 
@@ -7,7 +7,7 @@ This tool builds on the excellent foundation provided by the [OpenCap](https://g
 
 ## 🔍 Overview
 
-FrankenCap enables robust 3D tracking of **head, neck, and upper-limb kinematics** in challenging environments, such as young children in early mobility devices like:
+FrankenCap enables 3D tracking of **head, neck, and upper-limb kinematics** in challenging environments, such as young children in early mobility devices like:
 
 - [**GoBabyGo cars**](https://www.instructables.com/GoBabyGo-Make-a-Joystick-controlled-Ride-on-Car/)
 - [**Permobil Explorer Mini**](https://www.permobil.com/en-us/products/power-wheelchairs/permobil-explorer-mini)
@@ -18,7 +18,7 @@ These systems occlude the lower body, preventing accurate whole-body tracking wi
 - **Tracking in case of multi-person presence**
 - **Filtering and smoothing to handle random occlusions that happen in chaotic data collection environments with pediatric users**
 
-If you're studying **how children move and interact** in early mobility contexts and need to **track kinematics over time**, this tool is designed for you.
+If you're studying **how children move and interact** in early mobility contexts and need to **track kinematics over time**, we hope this tool is useful and something you can build upon.
 
 ---
 
