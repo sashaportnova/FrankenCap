@@ -1404,7 +1404,7 @@ def main(subj, startTime, endTime, trialName,
             all_keypoints_3d = np.array(all_keypoints_3d)
             
             #save it as a pickle file
-            pickleName = trialName + 'all_keypoints_3d.pickle'
+            pickleName = trialName + '_all_keypoints_3d.pickle'
             file_pickle = os.path.join(sessionDir,pickleName)
             savePickle(file_pickle,all_keypoints_3d)
     # %%
@@ -1548,12 +1548,12 @@ def main(subj, startTime, endTime, trialName,
         all_keypoints_3d = low_pass_filter(all_keypoints_3d)
         
         
-        # MEDIAN FILTER
-        from scipy.signal import medfilt
-        for mrk in range(len(marker_names)):
-            signal = all_keypoints_3d[:,mrk,:]
-            all_keypoints_3d[:,mrk,:] = np.apply_along_axis(medfilt, 0, signal, kernel_size=5) 
-            plot_multiple_markers_3D(all_keypoints_3d,marker_names, marker_indices=[mrk])
+        # # MEDIAN FILTER
+        # from scipy.signal import medfilt
+        # for mrk in range(len(marker_names)):
+        #     signal = all_keypoints_3d[:,mrk,:]
+        #     all_keypoints_3d[:,mrk,:] = np.apply_along_axis(medfilt, 0, signal, kernel_size=5) 
+        #     plot_multiple_markers_3D(all_keypoints_3d,marker_names, marker_indices=[mrk])
         
         
         #estimate hip positions
