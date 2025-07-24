@@ -33,16 +33,17 @@ If you're studying **how children move and interact** in early mobility contexts
 
 ## 🛠️ Installation
 
-We recommend using a virtual environment:
+### Hardware and OS requirements:
 
-```bash
-python -m venv FrankenCap
-source FrankenCap/bin/activate  # or FrankenCap\Scripts\activate on Windows
-```
+These instructions are for Windows 10. Minimum GPU requirements: CUDA-enabled GPU with at least 4GB memory - you need it to effectively run OpenPose, the pose detection algorithm. Larger GPU will enable faster pose detection, which will be essential for longer videos.
 
-# Install dependencies:
+### Download this repo:
 
-1. Install OpenCap-core following their [instructions](https://github.com/stanfordnmbl/opencap-core) under the Installation tab.
+You can either use a GitHub Desktop app or download the entire repository in a Zip folder (Click Code -> Download ZIP in the right-hand corner).
+
+### Create a virtual environment and install appropriate dependencies:
+
+1. Follow the installation [instructions](https://github.com/stanfordnmbl/opencap-core) for the OpenCap pipeline, found under the Installation tab. Make sure you follow all the steps (1-10) before moving to the next one. You can call this virtual environment something other than `opencap` if you already have it.
 
 2. Install librosa for audio-based synchronization:
 
@@ -103,7 +104,7 @@ FrankenCap/
 
 ## 🎥 Video Recording Guidelines
 
-While FrankenCap includes a relatively robust **audio-based synchronization algorithm**, we still recommend starting both cameras **as simultaneously as possible**. With our pipeline, we were able to handle up to ~5 seconds of misalignment between videos, but cleaner synchronization improves accuracy.
+While FrankenCap includes a relatively robust **audio-based synchronization algorithm**, we still recommend starting both cameras **as simultaneously as possible**. With our pipeline, we were able to handle up to ~5 seconds of misalignment between videos, but it is still better to start both cameras as close together as possible.
 
 **Tips for video capture:**
 - Try to **reduce background activity** at the beginning of the recording. Avoid having additional people in the frame behind or near the child from the time you start recording your activity of interest.
@@ -113,11 +114,9 @@ While FrankenCap includes a relatively robust **audio-based synchronization algo
 
 ## ▶️ Running the Pipeline
 
-To begin analysis, open the `runAnalysis.py` script. This is the main entry point for processing your video data.
-
 ### 🔧 Configuration Steps
 
-1. Open `runAnalysis.py` in your code editor.
+1. Open `runAnalysis.py` in your code editor. This is the main entry point for processing your video data.
 2. Modify the following variables near the top of the script:
 
 ```python
@@ -127,12 +126,14 @@ startTime = None      # (Optional) Start time in seconds if you want to trim the
 endTime = None        # (Optional) End time in seconds
 trialName = 'play'    # Name of the trial video (e.g., 'play.mp4')
 ```
+3. Run the script. It should go through the pipeline process described in **FrankenCap Pipeline Steps** below.
+4. At the point following the pose detection, you will be prompted to select the person of interest (see instructions below).
 
 ---
 
 ## 👤 Selecting the Person of Interest
 
-After running pose detection on both videos, if **multiple people are present** in the frame, the system will prompt you to select the correct subject.
+After running pose detection on both videos, if **multiple people are present** at any point in the frame, the system will prompt you to select the subject of interest.
 
 You will see a message like: `Is the person of interest present in this frame? [y/n]`
 
@@ -143,6 +144,25 @@ You will see a message like: `Is the person of interest present in this frame? [
 
 This selection process occurs **independently for each camera**.  
 Once selected, the algorithm will automatically track the correct subject **throughout the full video**, both forward and backward, and triangulate their 3D positions.
+
+---
+
+## 🧪 Visualizing Results in OpenSim
+
+After running the full pipeline, the following folders will be created:
+```
+/Model/
+└── MASI-upperOnly-markers-slider_noEars_scaled_no_patella.osim
+
+/Kinematics/
+└── keypoints_augmented.mot
+```
+
+To visualize:
+1. Open OpenSim
+2. Load the `.osim` model from the **Model** folder
+3. Load the `.mot` motion file from the **Kinematics** folder
+4. Use OpenSim’s tools to inspect joint trajectories, segment orientations, or export kinematic data
 
 ---
 
@@ -199,26 +219,6 @@ This pipeline uses a **modified MASI model** ([MASI link](https://simtk.org/frs/
 - **Lower extremities removed**, since lower-body tracking is not possible in occluded/seated conditions
 
 Model file used: `MASI-upperOnly-markers-slider_noEars_scaled_no_patella.osim`
-
----
-
-## 🧪 Visualizing Results in OpenSim
-
-After running the full pipeline, the following folders will be created:
-```
-/Model/
-└── MASI-upperOnly-markers-slider_noEars_scaled_no_patella.osim
-
-/Kinematics/
-└── keypoints_augmented.mot
-```
-
-
-To visualize:
-1. Open OpenSim
-2. Load the `.osim` model from the **Model** folder
-3. Load the `.mot` motion file from the **Kinematics** folder
-4. Use OpenSim’s tools to inspect joint trajectories, segment orientations, or export kinematic data
 
 ---
 
