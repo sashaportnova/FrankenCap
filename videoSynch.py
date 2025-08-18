@@ -2,9 +2,9 @@
 """
 Created on Wed Jun  4 16:30:49 2025
 
-@author: Sasha Portnova
+@author: Sasha Portnova & Ally Clarke
 
-This is an audio-based video synchronization file for our FrnakenCap
+This is an audio-based video synchronization file for our FrankenCap
 """
 
 import os

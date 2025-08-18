@@ -1993,7 +1993,7 @@
                             <!--Whether this coordinate should be prescribed during simulation.-->
                             <prescribed>false</prescribed>
                         </Coordinate>
-                    </coordinates>
+					</coordinates>
                     
                     <!--Spatial transform that defines how coordinates map to spatial motion.-->
                     <SpatialTransform>
@@ -2007,7 +2007,7 @@
                                 </Constant>
                             </function>
                         </TransformAxis>
-                        <TransformAxis name="rotation2">
+                         <TransformAxis name="rotation2">
                             <coordinates></coordinates>
                             <axis>0 1 0</axis>
                             <function>

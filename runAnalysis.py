@@ -15,11 +15,12 @@ runMarkerAugmentation=True
 scaleModel=True
 runInverseKinematics=True
 subj='P002'
-fps=30
-startTime = 0
-endTime = 60
+fps=30              # Frame rate of your recording device
+startTime = 0       # This is if you need to trim the original video to
+                    # only perform upper-body kinematic tracking for a portion of the recording
+endTime = 60        # you can leave them as None if you want to keep the original
 trialName = 'play2'
 
 main.main(subj, startTime, endTime, trialName,
          runMarkerAugmentation=runMarkerAugmentation, scaleModel=scaleModel, 
-         runInverseKinematics=runInverseKinematics,fps=30)
+         runInverseKinematics=runInverseKinematics,fps=fps)

@@ -1,3 +1,10 @@
+"""
+The code is modified from its original version from OpenCap-core GitHub
+repository, particularly the names and the types of the markers included in
+the getScaleTimeRange() function. In particular, the lower-limb markers
+are remoded and the facial markers are added.
+"""
+
 import os
 import utilsDataman
 import opensim

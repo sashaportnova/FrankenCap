@@ -7,6 +7,11 @@ Created on Wed Jun  4 16:09:43 2025
 This is a variation on the FrankenCap that we created with OpenPose being
 the algorithm used for pose detection (instead of MediaPipe as in the 
 previous version).
+
+Parts of the code utilize some functions from the original OpenCap-core
+GitHub repository. In praticular, we use getOpenPoseFaceMarkers(),
+getOpenPoseMarkerNames(), getOpenPoseMarkerLowerBodyNames(),
+trackKeypointBox(), findClosestBox(),keypointsToBoundingBox().
 """
 
 import cv2

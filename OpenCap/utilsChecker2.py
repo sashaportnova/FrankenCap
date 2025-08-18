@@ -1,3 +1,14 @@
+"""
+The code has been modified from its original version taken from OpenCap-core
+GitHub repository. In particular, the function loadPklVideo() has been modified
+so it includes the option of plotting a single frame with all the people 
+detected by the OpenPose via pose detection. The modified code asks
+the user if the person of interest is visible in the frame. If YES, then 
+the user is asked to select the number that corresponds with the person of
+interest from the legend. If NO, the program skips 10 frames and plots the 
+next frame with all the people detected by the OpenPose.
+"""
+
 import sys
 sys.path.append("./mmpose") # utilities in child directory
 import cv2 

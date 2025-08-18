@@ -14,6 +14,9 @@ checkerboard to be presented to the cameras at different angles
 For extrinsics, you need a brief video of a static checkerboard and it
 must be seen by all cameras at the same time.
 
+The extrinsics calculation relies on the code from Opencap-main repository,
+such as utils.py and utilsChecker2.py
+
 """
 
 import cv2

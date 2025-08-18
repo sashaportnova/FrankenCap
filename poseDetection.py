@@ -5,7 +5,7 @@ Created on Thu Jun  5 09:10:10 2025
 @author: Sasha Portnova
 
 This file contains everything to run OpenPose pose detection algorithm via the 
-command line (taken from the OpenCap code).
+command line (taken from the OpenCap code: utilsDetector.py script). 
 """
 
 import os
