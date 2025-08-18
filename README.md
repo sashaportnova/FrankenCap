@@ -5,7 +5,23 @@ This tool builds on the excellent foundation provided by the [OpenCap](https://g
 
 ---
 
-## 🔍 Overview
+## 📋 Table of Contents
+- [Overview](#Overview)  
+- [Features](#Features)
+- [Installation](#Installation)
+- [Setup Instructions](#Setup-Instructions)  
+- [Data Organization](#Data-Organization)  
+- [Video Recording Guidelines](#Video-Recording-Guidelines)  
+- [Running the Pipeline](#Running-the-Pipeline)
+- [Selecting the Person of Interest](#Selecting-the-Person-of-Interest)
+- [Visualizing Results in OpenSim](#Visualizing-Results-in-OpenSim)
+- [OpenSim Model](#OpenSim-Model)
+- [Acknowledgements](#Acknowledgements)
+- [Contact](#Contact)  
+
+---
+
+## Overview
 
 FrankenCap enables 3D tracking of **head, neck, and upper-limb kinematics** in challenging environments, such as young children in early mobility devices like:
 
@@ -22,7 +38,7 @@ If you're studying **how children move and interact** in early mobility contexts
 
 ---
 
-## ✅ Features
+## Features
 
 - 🎯 Upper-body kinematic tracking using multi-view OpenCap  
 - 🔊 Audio-based synchronization for multiple camera videos  
@@ -31,7 +47,7 @@ If you're studying **how children move and interact** in early mobility contexts
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 ### Hardware and OS requirements:
 
@@ -53,7 +69,7 @@ pip install librosa
 
 ---
 
-## 📸 Setup Instructions
+## Setup Instructions
 
 ### 🎥 Camera Configuration
 
@@ -72,7 +88,7 @@ pip install librosa
   
 ---
 
-## 🗂️ Data Organization
+## Data Organization
 
 Organize your data in the following folder structure:
 
@@ -102,7 +118,7 @@ FrankenCap/
 
 ---
 
-## 🎥 Video Recording Guidelines
+## Video Recording Guidelines
 
 While FrankenCap includes a relatively robust **audio-based synchronization algorithm**, we still recommend starting both cameras **as simultaneously as possible**. With our pipeline, we were able to handle up to ~5 seconds of misalignment between videos, but it is still better to start both cameras as close together as possible.
 
@@ -112,7 +128,7 @@ While FrankenCap includes a relatively robust **audio-based synchronization algo
 
 ---
 
-## ▶️ Running the Pipeline
+## Running the Pipeline
 
 ### 🔧 Configuration Steps
 
@@ -131,7 +147,7 @@ trialName = 'play'    # Name of the trial video (e.g., 'play.mp4')
 
 ---
 
-## 👤 Selecting the Person of Interest
+## Selecting the Person of Interest
 
 After running pose detection on both videos, if **multiple people are present** at any point in the frame, the system will prompt you to select the subject of interest.
 
@@ -147,7 +163,7 @@ Once selected, the algorithm will automatically track the correct subject **thro
 
 ---
 
-## 🧪 Visualizing Results in OpenSim
+## Visualizing Results in OpenSim
 
 After running the full pipeline, the following folders will be created:
 ```
@@ -166,7 +182,7 @@ To visualize:
 
 ---
 
-## 🔄 FrankenCap Pipeline Steps
+## FrankenCap Pipeline Steps
 
 ### 1️⃣ Video Processing
 - Optional: **Trim** the video
@@ -211,7 +227,7 @@ To visualize:
 
 ---
 
-## 🧩 OpenSim Model
+## OpenSim Model
 
 This pipeline uses a **modified MASI model** ([MASI link](https://simtk.org/frs/?group_id=982)):
 
@@ -222,14 +238,13 @@ Model file used: `MASI-upperOnly-markers-slider_noEars_scaled_no_patella.osim`
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
-FrankenCap is built upon the exceptional [OpenCap-core](https://github.com/stanfordnmbl/opencap-core) project by the Stanford [Neuromuscular Biomechanics Lab](https://nmbl.stanford.edu/).  
-We are deeply grateful to the Stanford team for developing and sharing such a robust and extensible tool for markerless motion capture.
+FrankenCap is built upon the exceptional [OpenCap-core](https://github.com/stanfordnmbl/opencap-core) project by the Stanford [Neuromuscular Biomechanics Lab](https://nmbl.stanford.edu/) licensed under the [Apache License, Version 2.0](https://github.com/stanfordnmbl/opencap-core?tab=Apache-2.0-1-ov-file#readme). We are deeply grateful to the Stanford team for developing and sharing such a robust and extensible tool for markerless motion capture.
 
 ---
 
-## 📬 Contact
+## Contact
 
 Have questions or suggestions?  
 Feel free to [open an issue](https://github.com/your-org/frankencap/issues) or contact the project maintainers directly.
