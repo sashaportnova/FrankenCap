@@ -240,8 +240,7 @@ Model file used: `MASI-upperOnly-markers-slider_noEars_scaled_no_patella.osim`
 
 ## Acknowledgements
 
-FrankenCap is built upon the exceptional [OpenCap-core](https://github.com/stanfordnmbl/opencap-core) project by the Stanford [Neuromuscular Biomechanics Lab](https://nmbl.stanford.edu/).  
-We are deeply grateful to the Stanford team for developing and sharing such a robust and extensible tool for markerless motion capture.
+FrankenCap is built upon the exceptional [OpenCap-core](https://github.com/stanfordnmbl/opencap-core) project by the Stanford [Neuromuscular Biomechanics Lab](https://nmbl.stanford.edu/) licensed under the [Apache License, Version 2.0](https://github.com/stanfordnmbl/opencap-core?tab=Apache-2.0-1-ov-file#readme). We are deeply grateful to the Stanford team for developing and sharing such a robust and extensible tool for markerless motion capture.
 
 ---
 
