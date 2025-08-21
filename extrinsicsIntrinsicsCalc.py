@@ -405,7 +405,7 @@ def main(subject, path, camList,metaData):
             saveCameraParameters(
                 os.path.join(cameraDirectories[camName],'CameraParameters',
                              "cameraIntrinsicsExtrinsics.pickle"), 
-                os.path.join(CamParamDict[camName],'CameraParameters'))
+                CamParamDict[camName])
 
 
 
