@@ -1204,6 +1204,8 @@ def main(subj, startTime, endTime, trialName,
     # augmentor data
     augmenterDir = os.path.join(openCapDir, "MarkerAugmenter")
     output_folder = os.path.join(sessionDir, "MarkerData")
+    if not os.path.isdir(output_folder):
+        os.mkdir(output_folder)
     trc_file_path = os.path.join(output_folder,trialName, "pose_keypoints.trc")
     pathAugmentedOutputFiles = os.path.join(
             output_folder, trialName, "keypoints_augmented.trc")
@@ -1516,7 +1518,7 @@ def main(subj, startTime, endTime, trialName,
         
         
         # Try pattern-based filling
-        if patternBasedFilling = True:
+        if patternBasedFilling == True:
             # Nose to REye
             primary_kp = all_keypoints_3d[:,8,:]
             reference_kp = all_keypoints_3d[:,0,:]

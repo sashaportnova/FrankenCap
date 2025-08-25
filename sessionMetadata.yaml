@@ -1,0 +1,17 @@
+calibrationSettings:
+  overwriteDeployedIntrinsics: false
+  saveSessionIntrinsics: false
+checkerBoard:
+  black2BlackCornersHeight_n: 4
+  black2BlackCornersWidth_n: 5
+  placement: backWall
+  squareSideLength_mm: 35.0
+gender_mf: f
+height_m: 0.91
+markerAugmentationSettings:
+  markerAugmenterModel: LSTM
+mass_kg: 12.2
+openSimModel: MASI-upperOnly-markers-slider_noEars
+posemodel: openpose
+subjectID: P05_V01
+scalingsetup: any_pose
