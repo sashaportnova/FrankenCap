@@ -95,23 +95,23 @@ Organize your data in the following folder structure:
 ```
 FrankenCap/
 └── P1/ # Subject folder (e.g., Participant 1)
-├── sessionMetadata.yaml # Metadata file describing session setup
-└── Videos/
-├── Cam1/
-│ ├── CameraParameters/
-│ │ ├── intrinsics.mp4
-│ │ └── extrinsics.mp4
-│ ├── play/
-|    └── play.mp4 # Trial video for Cam1
-└── Cam2/
-├── CameraParameters/
-│ ├── intrinsics.mp4
-│ └── extrinsics.mp4
-│ ├── play/
-|    └── play.mp4 # Trial video for Cam1
+  ├── sessionMetadata.yaml # Metadata file describing session setup (a file template is part of this repository)
+  └── Videos/
+  ├── Cam1/
+  │ ├── CameraParameters/
+  │ │ ├── intrinsics.mp4
+  │ │ └── extrinsics.mp4
+  │ ├── play/
+  |    └── play.mp4 # Trial video for Cam1
+  └── Cam2/
+  ├── CameraParameters/
+  │ ├── intrinsics.mp4
+  │ └── extrinsics.mp4
+  │ ├── play/
+  |    └── play.mp4 # Trial video for Cam1
 ```
 
-> ✅ Ensure the `sessionMetadata.yaml` file matches your setup:
+> ✅ Ensure the `sessionMetadata.yaml` file matches your setup (use any txt editors):
 > - Checkerboard dimensions and size
 > - Height and mass of the participant (used for OpenSim scaling)
 > - openSimModel is set to *MASI-upperOnly-markers-slider_noEars*
@@ -136,11 +136,15 @@ While FrankenCap includes a relatively robust **audio-based synchronization algo
 2. Modify the following variables near the top of the script:
 
 ```python
-subj = 'P1'           # Folder name for your participant (e.g., 'P1')
-fps = 30              # Frames per second of your video (default is 30Hz)
-startTime = None      # (Optional) Start time in seconds if you want to trim the video
-endTime = None        # (Optional) End time in seconds
-trialName = 'play'    # Name of the trial video (e.g., 'play.mp4')
+subj = 'P1'                # Folder name for your participant (e.g., 'P1')
+fps = 30                   # Frames per second of your video (default is 30Hz)
+startTime = None           # (Optional) Start time in seconds if you want to trim the video
+endTime = None             # (Optional) End time in seconds
+trialName = 'play'         # Name of the trial video (e.g., 'play.mp4')
+runMarkerAugmentation=True # Leave on True if you're running IK
+scaleModel=True            # Needed to be on to scale the OpenSim model before running the IK
+runInverseKinematics=True  # Run the IK
+patternBasedFilling = True # Keep this on if you want the pipeline to perform the pattern-based filling (as described in the **FrankenCap Pipeline Steps** below)
 ```
 3. Run the script. It should go through the pipeline process described in **FrankenCap Pipeline Steps** below.
 4. At the point following the pose detection, you will be prompted to select the person of interest (see instructions below).
@@ -233,6 +237,7 @@ This pipeline uses a **modified MASI model** ([MASI link](https://simtk.org/frs/
 
 - Two **3-DOF joints at the neck** (improved head/neck motion capture)
 - **Lower extremities removed**, since lower-body tracking is not possible in occluded/seated conditions
+- **Hip joints are fused**, but vertical movement is allowed.
 
 Model file used: `MASI-upperOnly-markers-slider_noEars_scaled_no_patella.osim`
 
