@@ -1179,7 +1179,7 @@ def estimate_hips_from_shoulders(neck, Lshoulder, Rshoulder, height_m):
 # %%
 def main(subj, startTime, endTime, trialName,
          runMarkerAugmentation=True, scaleModel=True, 
-         runInverseKinematics=True,fps=30):
+         runInverseKinematics=True,fps=30, patternBasedFilling=True):
     import sys
     sys.path.append('OpenCap')
     
@@ -1516,38 +1516,39 @@ def main(subj, startTime, endTime, trialName,
         
         
         # Try pattern-based filling
-        # Nose to REye
-        primary_kp = all_keypoints_3d[:,8,:]
-        reference_kp = all_keypoints_3d[:,0,:]
-        all_keypoints_3d[:,8,:] = fill_with_single_reference(primary_kp, reference_kp)
-        #Nose to LEye
-        primary_kp = all_keypoints_3d[:,9,:]
-        reference_kp = all_keypoints_3d[:,0,:]
-        all_keypoints_3d[:,9,:] = fill_with_single_reference(primary_kp, reference_kp)
-        #Neck to RShoulder
-        primary_kp = all_keypoints_3d[:,2,:]
-        reference_kp = all_keypoints_3d[:,1,:]
-        all_keypoints_3d[:,2,:] = fill_with_single_reference(primary_kp, reference_kp)
-        #Neck to LShoulder
-        primary_kp = all_keypoints_3d[:,5,:]
-        reference_kp = all_keypoints_3d[:,1,:]
-        all_keypoints_3d[:,5,:] = fill_with_single_reference(primary_kp, reference_kp)
-        #RShoulder to RElbow
-        primary_kp = all_keypoints_3d[:,3,:]
-        reference_kp = all_keypoints_3d[:,2,:]
-        all_keypoints_3d[:,3,:] = fill_with_single_reference(primary_kp, reference_kp)
-        #LShoulder to LElbow
-        primary_kp = all_keypoints_3d[:,6,:]
-        reference_kp = all_keypoints_3d[:,5,:]
-        all_keypoints_3d[:,6,:] = fill_with_single_reference(primary_kp, reference_kp)
-        #RElbow to RWrist
-        primary_kp = all_keypoints_3d[:,4,:]
-        reference_kp = all_keypoints_3d[:,3,:]
-        all_keypoints_3d[:,4,:] = fill_with_single_reference(primary_kp, reference_kp)
-        #LElbow to LWrist
-        primary_kp = all_keypoints_3d[:,7,:]
-        reference_kp = all_keypoints_3d[:,6,:]
-        all_keypoints_3d[:,7,:] = fill_with_single_reference(primary_kp, reference_kp)
+        if patternBasedFilling = True:
+            # Nose to REye
+            primary_kp = all_keypoints_3d[:,8,:]
+            reference_kp = all_keypoints_3d[:,0,:]
+            all_keypoints_3d[:,8,:] = fill_with_single_reference(primary_kp, reference_kp)
+            #Nose to LEye
+            primary_kp = all_keypoints_3d[:,9,:]
+            reference_kp = all_keypoints_3d[:,0,:]
+            all_keypoints_3d[:,9,:] = fill_with_single_reference(primary_kp, reference_kp)
+            #Neck to RShoulder
+            primary_kp = all_keypoints_3d[:,2,:]
+            reference_kp = all_keypoints_3d[:,1,:]
+            all_keypoints_3d[:,2,:] = fill_with_single_reference(primary_kp, reference_kp)
+            #Neck to LShoulder
+            primary_kp = all_keypoints_3d[:,5,:]
+            reference_kp = all_keypoints_3d[:,1,:]
+            all_keypoints_3d[:,5,:] = fill_with_single_reference(primary_kp, reference_kp)
+            #RShoulder to RElbow
+            primary_kp = all_keypoints_3d[:,3,:]
+            reference_kp = all_keypoints_3d[:,2,:]
+            all_keypoints_3d[:,3,:] = fill_with_single_reference(primary_kp, reference_kp)
+            #LShoulder to LElbow
+            primary_kp = all_keypoints_3d[:,6,:]
+            reference_kp = all_keypoints_3d[:,5,:]
+            all_keypoints_3d[:,6,:] = fill_with_single_reference(primary_kp, reference_kp)
+            #RElbow to RWrist
+            primary_kp = all_keypoints_3d[:,4,:]
+            reference_kp = all_keypoints_3d[:,3,:]
+            all_keypoints_3d[:,4,:] = fill_with_single_reference(primary_kp, reference_kp)
+            #LElbow to LWrist
+            primary_kp = all_keypoints_3d[:,7,:]
+            reference_kp = all_keypoints_3d[:,6,:]
+            all_keypoints_3d[:,7,:] = fill_with_single_reference(primary_kp, reference_kp)
         
         # low-pass
         all_keypoints_3d = low_pass_filter(all_keypoints_3d)
