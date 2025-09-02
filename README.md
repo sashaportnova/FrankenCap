@@ -82,7 +82,7 @@ pip install librosa
 
 - Use a **4×5 35mm checkerboard** for camera calibration. [Link](https://calib.io/)
 - If you use a different checkerboard pattern, update the relevant settings in the `sessionMetadata.yaml` file located in the subject/session folder.
-- For *intrinsics* calibration: you will need to record a video of the calibration checkerboard floated in the frames between both cameras at different angles. Save these files as *intrinsics.mp4*.
+- For *intrinsics* calibration: you will need to record a video of the calibration checkerboard floating in the frames between both cameras at different angles. Save these files as *intrinsics.mp4*.
 - For *extrinsics* calibration: you will need to record a brief video of the checkerboard placed perpendicular to the cameras in the following setup (PHOTO INCLUDED BELOW). Save these files as *extrinsics.mp4*.
   <img width="759" height="630" alt="image" src="https://github.com/user-attachments/assets/a5769697-bc4f-4c1a-927d-91e187a2fb93" />
   
@@ -252,4 +252,4 @@ FrankenCap is built upon the exceptional [OpenCap-core](https://github.com/stanf
 ## Contact
 
 Have questions or suggestions?  
-Feel free to [open an issue](https://github.com/your-org/frankencap/issues) or contact the project maintainers directly.
+Feel free to [open an issue](https://github.com/sashaportnova/frankencap/issues) or contact the project maintainers directly.
